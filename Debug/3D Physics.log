@@ -1,0 +1,39 @@
+﻿  Application.cpp
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModulePhysics3D.h(44,7): error C2086: 'bool ModulePhysics3D::debug': redefinition
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModulePhysics3D.h(50,29): error C2086: 'btDiscreteDynamicsWorld *ModulePhysics3D::world': redefinition
+  Main.cpp
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModulePhysics3D.h(44,7): error C2086: 'bool ModulePhysics3D::debug': redefinition
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModulePhysics3D.h(50,29): error C2086: 'btDiscreteDynamicsWorld *ModulePhysics3D::world': redefinition
+  ModuleAudio.cpp
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModulePhysics3D.h(44,7): error C2086: 'bool ModulePhysics3D::debug': redefinition
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModulePhysics3D.h(50,29): error C2086: 'btDiscreteDynamicsWorld *ModulePhysics3D::world': redefinition
+  ModuleCamera3D.cpp
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModulePhysics3D.h(44,7): error C2086: 'bool ModulePhysics3D::debug': redefinition
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModulePhysics3D.h(50,29): error C2086: 'btDiscreteDynamicsWorld *ModulePhysics3D::world': redefinition
+  ModuleInput.cpp
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModulePhysics3D.h(44,7): error C2086: 'bool ModulePhysics3D::debug': redefinition
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModulePhysics3D.h(50,29): error C2086: 'btDiscreteDynamicsWorld *ModulePhysics3D::world': redefinition
+  ModuleMap.cpp
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModulePhysics3D.h(44,7): error C2086: 'bool ModulePhysics3D::debug': redefinition
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModulePhysics3D.h(50,29): error C2086: 'btDiscreteDynamicsWorld *ModulePhysics3D::world': redefinition
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModuleMap.h(6,12): warning C4099: 'Cube': type name first seen using 'class' now seen using 'struct'
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\Primitive.h(40): message : see declaration of 'Cube'
+  ModulePhysics3D.cpp
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModulePhysics3D.h(44,7): error C2086: 'bool ModulePhysics3D::debug': redefinition
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModulePhysics3D.h(50,29): error C2086: 'btDiscreteDynamicsWorld *ModulePhysics3D::world': redefinition
+  ModulePlayer.cpp
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModulePhysics3D.h(44,7): error C2086: 'bool ModulePhysics3D::debug': redefinition
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModulePhysics3D.h(50,29): error C2086: 'btDiscreteDynamicsWorld *ModulePhysics3D::world': redefinition
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(190,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(192,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModulePlayer.cpp(193,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  ModuleRenderer3D.cpp
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModulePhysics3D.h(44,7): error C2086: 'bool ModulePhysics3D::debug': redefinition
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModulePhysics3D.h(50,29): error C2086: 'btDiscreteDynamicsWorld *ModulePhysics3D::world': redefinition
+  ModuleSceneIntro.cpp
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModulePhysics3D.h(44,7): error C2086: 'bool ModulePhysics3D::debug': redefinition
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModulePhysics3D.h(50,29): error C2086: 'btDiscreteDynamicsWorld *ModulePhysics3D::world': redefinition
+  ModuleWindow.cpp
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModulePhysics3D.h(44,7): error C2086: 'bool ModulePhysics3D::debug': redefinition
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\ModulePhysics3D.h(50,29): error C2086: 'btDiscreteDynamicsWorld *ModulePhysics3D::world': redefinition
+  Generating Code...
