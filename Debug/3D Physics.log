@@ -1,4 +1,8 @@
-﻿  ModulePhysics3D.cpp
+﻿  ModuleMap.cpp
 C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\physics-projct\ModuleMap.h(6,12): warning C4099: 'Cube': type name first seen using 'class' now seen using 'struct'
 C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\physics-projct\Primitive.h(42): message : see declaration of 'Cube'
+  ModulePhysics3D.cpp
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\physics-projct\ModuleMap.h(6,12): warning C4099: 'Cube': type name first seen using 'class' now seen using 'struct'
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\physics-projct\Primitive.h(42): message : see declaration of 'Cube'
+  Generating Code...
   3D Physics.vcxproj -> C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\physics-projct\Debug\3D Physics - class5.exe

@@ -19,6 +19,12 @@ public:
 
 	void CreateWalls(vec3 size, vec3 pos, float angle = 0.0, Color color = Color(0, 1, 0, 0));
 	void CreateFloor(vec3 size, vec3 pos, Color color = Color(0, 1, 0, 0));
+
+	void CreateGoal();
+	void CreateBall();
+
+	void OnCollision(PhysBody3D* body1, PhysBody3D* body2);
+
 	void MergeMap();
 
 	void LoadMap();
@@ -28,6 +34,8 @@ public:
 
 	PhysBody3D* PhysBodyA;
 	PhysBody3D* PhysBodyB;
+	PhysBody3D* sensor_goal;
+	PhysBody3D* ball;
 
 	Cube* cubeA;
 	Cube* cubeB;

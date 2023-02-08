@@ -43,6 +43,12 @@ update_status ModuleMap::Update(float dt)
 
 	}
 
+	if (App->player->vehicle->GetPos().y < -50) {
+
+		App->player->vehicle->SetPos(0, 5, 0);
+
+	}
+
 	//PhysBodyA->GetTransform(cubeA->transform.M);
 	//cubeA->Render();
 
@@ -55,6 +61,9 @@ void ModuleMap::LoadMap()
 
 	MergeMap(); //sounds like a shitty mobile game
 
+	CreateGoal();
+	CreateBall();
+
 }
 
 void ModuleMap::MergeMap()
@@ -64,8 +73,8 @@ void ModuleMap::MergeMap()
 
 	//Map base
 
-	CreateWalls(vec3(20, 1, 20), vec3(0, 0, 0));
-	CreateFloor(vec3(20, 1, 20), vec3(0, 0, 0));
+	CreateWalls(vec3(50, 1, 50), vec3(50, 0, 50));
+	CreateFloor(vec3(20, 1, 20), vec3(20, 0, 20));
 
 }
 
@@ -108,4 +117,37 @@ void ModuleMap::CreateFloor(vec3 size, vec3 pos, Color color)
 
 	App->physics->world->addRigidBody(body);
 
+}
+
+void ModuleMap::CreateGoal()
+{
+
+	sensor_goal = App->physics->AddBody(Cube(5, 5, 5), 0.0);
+	sensor_goal->SetPos(50, 5, 10);
+	sensor_goal->SetAsSensor(true);
+
+}
+
+void ModuleMap::CreateBall()
+{
+	ball = App->physics->AddBody(Sphere(2), 1.0);
+	ball->SetPos(7, 5, 7);
+	ball->collision_listeners.add(this);
+}
+
+void ModuleMap::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
+{
+	if ((body1 == ball && body2 == sensor_goal) || (body2 == ball && body1 == sensor_goal)) {
+
+		//WIN
+		//setposiiotn
+
+		ball->SetPos(3, 5, 3);
+		App->player->vehicle->SetPos(0, 5, 0);
+
+		ball->SetVelocity(0, 0, 0);
+		ball->AngularVelocity(0, 0, 0);
+		App->player->vehicle->SetVelocity(0, 0, 0);
+
+	}
 }

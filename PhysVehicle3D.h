@@ -46,6 +46,7 @@ public:
 	~PhysVehicle3D();
 
 	void Render();
+	void RenderChassisElement(float x, float y, float z, float offsetBehind, float offsetVertical);
 	void ApplyEngineForce(float force);
 	void Brake(float force);
 	void Turn(float degrees);

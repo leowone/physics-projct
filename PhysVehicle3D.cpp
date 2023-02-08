@@ -38,18 +38,26 @@ void PhysVehicle3D::Render()
 		wheel.Render();
 	}
 
-	Cube chassis(info.chassis_size.x, info.chassis_size.y, info.chassis_size.z);
-	vehicle->getChassisWorldTransform().getOpenGLMatrix(&chassis.transform);
+	RenderChassisElement(0.5, 0.5, 0.5, 0, 0);
+	RenderChassisElement(5, 0.1, 0.1, 2, 1);
+
+}
+
+void PhysVehicle3D::RenderChassisElement(float x, float y, float z, float offsetBehind, float offsetVertical)
+{
+	Cube chassis_element(x, y, z); //TAMAÑO DEL OBJETO
+
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&chassis_element.transform);
 	btQuaternion q = vehicle->getChassisWorldTransform().getRotation();
 	btVector3 offset(info.chassis_offset.x, info.chassis_offset.y, info.chassis_offset.z);
 	offset = offset.rotate(q.getAxis(), q.getAngle());
+	auto elementOffsetBehind = -offsetBehind * vehicle->getForwardVector();
+	chassis_element.transform.M[12] += offset.getX() + elementOffsetBehind.getX();
+	chassis_element.transform.M[13] += offset.getY() + elementOffsetBehind.getY() + offsetVertical;
+	chassis_element.transform.M[14] += offset.getZ() + elementOffsetBehind.getZ();
+	chassis_element.Render();
 
-	chassis.transform.M[12] += offset.getX();
-	chassis.transform.M[13] += offset.getY();
-	chassis.transform.M[14] += offset.getZ();
 
-
-	chassis.Render();
 }
 
 // ----------------------------------------------------------------------------

@@ -24,15 +24,19 @@ public:
 	void SetTransform(const float* matrix) const;
 	void SetPos(float x, float y, float z);
 	void AngularVelocity(float x, float y, float z);
+	void SetVelocity(float x, float y, float z);
 	void SetGrav(vec3 g);
 
 	vec3 GetPos();
+
+	void SetAsSensor(bool is_sensor);
 
 private:
 
 	//void SetBody(btCollisionShape* shape, Primitive* parent, float mass);
 
 	btRigidBody* body = nullptr;
+	bool is_sensor;
 	//btCollisionShape* colShape;
 	//btDefaultMotionState* motionState;
 
