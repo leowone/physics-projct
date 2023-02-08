@@ -32,7 +32,7 @@ private:
 
 	//void SetBody(btCollisionShape* shape, Primitive* parent, float mass);
 
-	//btRigidBody* body = nullptr;
+	btRigidBody* body = nullptr;
 	//btCollisionShape* colShape;
 	//btDefaultMotionState* motionState;
 

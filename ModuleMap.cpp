@@ -43,8 +43,8 @@ update_status ModuleMap::Update(float dt)
 
 	}
 
-	PhysBodyA->GetTransform(cubeA->transform.M);
-	cubeA->Render();
+	//PhysBodyA->GetTransform(cubeA->transform.M);
+	//cubeA->Render();
 
 	return UPDATE_CONTINUE;
 

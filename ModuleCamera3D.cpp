@@ -3,6 +3,7 @@
 #include "PhysBody3D.h"
 #include "ModuleCamera3D.h"
 #include "ModulePlayer.h"
+#include "PhysVehicle3D.h"
 
 ModuleCamera3D::ModuleCamera3D(Application* app, bool start_enabled) : Module(app, start_enabled)
 {
@@ -64,16 +65,26 @@ update_status ModuleCamera3D::Update(float dt)
 
 	camPos = App->player->CarMovement();
 
-	Position.x = App->player->CarPos().x() + camPos.x * 25;
-	Position.y = App->player->CarPos().y() + 10;
-	Position.z = App->player->CarPos().z() + camPos.y * 25;
+	//Mover camara a la misma posicion del chassis del coche
+	Position.x = App->player->CarPos().x();
+	Position.y = App->player->CarPos().y();
+	Position.z = App->player->CarPos().z();
 
-	Position += newPos;
-	Reference += newPos;
+	//mover camara hacioa atras respecto al chassis (concep`tuyal)
+	auto chassisPosX = App->player->vehicle->vehicle->getForwardVector().getX();
+	auto chassisPosY = App->player->vehicle->vehicle->getForwardVector().getY();
+	auto chassisPosZ = App->player->vehicle->vehicle->getForwardVector().getZ();
+	auto camBackX = Position.x - chassisPosX * 10;
+	auto camBackY = Position.y - chassisPosY * 10 + 5;
+	auto camBackZ = Position.z - chassisPosZ * 10;
+	Position = { camBackX, camBackY, camBackZ };
 
+	//punto donde mira la camara
 	newPos.x = App->player->CarPos().x();
-	newPos.y = App->player->CarPos().y();
+	newPos.y = App->player->CarPos().y() + 4;
 	newPos.z = App->player->CarPos().z();
+
+	Reference = newPos;
 
 	LookAt(newPos);
 

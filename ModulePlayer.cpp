@@ -36,11 +36,16 @@ bool ModulePlayer::CleanUp()
 // Update: draw background
 update_status ModulePlayer::Update(float dt)
 {
+	auto speed = vehicle->GetKmh();
 	turn = acceleration = brake = 0.0f;
 
 	if(App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
 	{
-		acceleration = MAX_ACCELERATION;
+		if(speed >= 0)
+			acceleration = MAX_ACCELERATION;
+
+		if (speed < 0)
+			brake = BRAKE_POWER;
 	}
 
 	if(App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
@@ -57,9 +62,14 @@ update_status ModulePlayer::Update(float dt)
 
 	if(App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
 	{
-		brake = BRAKE_POWER;
-	}
+		//brake = BRAKE_POWER;
+		if (speed <= 0)
+			acceleration = -MAX_ACCELERATION;
 
+		if (speed > 0)
+			brake = BRAKE_POWER;
+	}
+	
 	vehicle->ApplyEngineForce(acceleration);
 	vehicle->Turn(turn);
 	vehicle->Brake(brake);
