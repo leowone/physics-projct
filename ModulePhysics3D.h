@@ -41,13 +41,13 @@ public:
 
 private:
 
-	bool debug;
+	//bool debug;
 
 	btDefaultCollisionConfiguration*	collision_conf;
 	btCollisionDispatcher*				dispatcher;
 	btBroadphaseInterface*				broad_phase;
 	btSequentialImpulseConstraintSolver* solver;
-	btDiscreteDynamicsWorld*			world;
+	//btDiscreteDynamicsWorld*			world;
 	btDefaultVehicleRaycaster*			vehicle_raycaster;
 	DebugDrawer*						debug_draw;
 

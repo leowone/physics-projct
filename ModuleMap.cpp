@@ -64,12 +64,15 @@ void ModuleMap::MergeMap()
 
 	//Map base
 
-	CreateMap(vec3(20, 1, 20), vec3(0, 0, 0));
+	CreateWalls(vec3(20, 1, 20), vec3(0, 0, 0));
+	CreateFloor(vec3(20, 1, 20), vec3(0, 0, 0));
 
 }
 
-void ModuleMap::CreateMap(vec3 size, vec3 pos, float angle, Color color)
+void ModuleMap::CreateWalls(vec3 size, vec3 pos, float angle, Color color)
 {
+
+	pos.y += 1;
 
 	btBoxShape* box = new btBoxShape(btVector3(size.x / 2, size.y / 2, size.z / 2));
 	btCollisionShape* collision = box;
@@ -91,5 +94,18 @@ void ModuleMap::CreateMap(vec3 size, vec3 pos, float angle, Color color)
 	cube->color.Set(color.r, color.g, color.b, color.a);
 
 	Cubes.add(cube);
+
+}
+
+void ModuleMap::CreateFloor(vec3 size, vec3 pos, Color color)
+{
+	pos.y += 0;
+
+	btCollisionShape* colShape = new btStaticPlaneShape(btVector3(0, 1, 0), 0);
+	btDefaultMotionState* myMotionState = new btDefaultMotionState();
+	btRigidBody::btRigidBodyConstructionInfo rbInfo(0.0f, myMotionState, colShape);
+	btRigidBody* body = new btRigidBody(rbInfo);
+
+	App->physics->world->addRigidBody(body);
 
 }

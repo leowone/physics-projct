@@ -2,6 +2,7 @@
 #pragma once
 #include "glmath.h"
 #include "Color.h"
+#include "PhysBody3D.h"
 
 enum PrimitiveTypes
 {
@@ -26,11 +27,12 @@ public:
 	void			Scale(float x, float y, float z);
 	PrimitiveTypes	GetType() const;
 
-public:
+//public:
 	
 	Color color;
 	mat4x4 transform;
 	bool axis,wire;
+	//PhysBody3D body;
 
 protected:
 	PrimitiveTypes type;
