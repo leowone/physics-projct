@@ -209,7 +209,6 @@ vec2 ModulePlayer::CarMovement()
 void ModulePlayer::Movement()
 {
 	turn = acceleration = brake = 0.0f;
-	//i also like lavander mr bob ross
 
 	if (App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
 	{

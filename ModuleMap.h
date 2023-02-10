@@ -33,9 +33,6 @@ public:
 	p2List<Cube*> Cubes;
 	p2List_item<Cube*>* CubesItem;
 
-	//p2List<Sphere*> Spheres;
-	//p2List_item<Sphere*>* SpheresItem;
-
 	PhysBody3D* PhysBodyA;
 	PhysBody3D* PhysBodyB;
 	PhysBody3D* sensor_goal;

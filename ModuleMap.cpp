@@ -14,7 +14,7 @@ ModuleMap::~ModuleMap()
 bool ModuleMap::Start()
 {
 
-	LOG("Loading Map"); //thanks moduleplayer.ccp!
+	LOG("Loading Map");
 
 	LoadMap();
 
@@ -61,7 +61,7 @@ void ModuleMap::LoadMap()
 	MergeMap();
 
 	CreateGoal();
-	CreateBall(2, (8, 5, 0), White);
+	CreateBall(2, (0, 5, 8), White);
 
 }
 
@@ -196,7 +196,7 @@ void ModuleMap::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 		//WIN
 		//setposiiotn
 
-		ball->SetPos(3, 5, 3);
+		ball->SetPos(0, 5, 8);
 		App->player->vehicle->SetPos(0, 5, 0);
 
 		ball->SetVelocity(0, 0, 0);

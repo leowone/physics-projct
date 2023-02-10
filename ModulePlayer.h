@@ -23,7 +23,6 @@ public:
 	vec2 CarMovement();
 
 	void Movement();
-	//thanks bob ross for being the best background noise i could ask for
 
 	void CreateVehicle();
 

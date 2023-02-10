@@ -88,11 +88,6 @@ update_status ModuleCamera3D::Update(float dt)
 
 	LookAt(newPos);
 
-	//car movement is a bit clunky, you need to do a full 180degree spin to get it behind the car when you rotate
-	//will fix later
-	//will take a quick nap now (its 10am)
-	//i am back again (its 7pm. i woke up at 3pm. i wasted my time. i am sorry)
-
 	// Mouse motion ----------------
 
 	if(App->input->GetMouseButton(SDL_BUTTON_RIGHT) == KEY_REPEAT)
