@@ -70,10 +70,29 @@ void ModuleMap::MergeMap()
 {
 
 	Color Green(0.0, 1.0, 0.0); //bob ross said green
+	Color White(1.0, 1.0, 1.0);
 
 	//Map base
+	
+	//walls
+	CreateWalls(vec3(5, 60, 200), vec3 (100, 0, 0));
+	CreateWalls(vec3(5, 60, 200), vec3 (-100, 0, 0));
+	CreateWalls(vec3(200, 60, 5), vec3 (0, 0, 100));
+	CreateWalls(vec3(200, 60, 5), vec3 (0, 0, -100));
 
-	CreateWalls(vec3(50, 1, 50), vec3(50, 0, 50));
+	//gradas
+	CreateWalls(vec3(7, 40, 100), vec3(94, -10, 0), 0, White);
+	CreateWalls(vec3(10, 32, 100), vec3(85.5, -14, 0), 0, White);
+	CreateWalls(vec3(12, 26, 100), vec3(74.5, -17, 0), 0, White);
+
+	CreateWalls(vec3(7, 40, 100), vec3(-94, -10, -0), 0, White);
+	CreateWalls(vec3(10, 32, 100), vec3(-85.5, -14, -0), 0, White);
+	CreateWalls(vec3(12, 26, 100), vec3(-74.5, -17, -0), 0, White);
+
+	//mini walls
+	//CreateWalls(vec3(1, 3, 150), vec3(60, -18, 0));
+
+
 	CreateFloor(vec3(20, 1, 20), vec3(20, 0, 20));
 
 }
@@ -81,7 +100,7 @@ void ModuleMap::MergeMap()
 void ModuleMap::CreateWalls(vec3 size, vec3 pos, float angle, Color color)
 {
 
-	pos.y += 1;
+	pos.y += 30;
 
 	btBoxShape* box = new btBoxShape(btVector3(size.x / 2, size.y / 2, size.z / 2));
 	btCollisionShape* collision = box;
@@ -95,7 +114,7 @@ void ModuleMap::CreateWalls(vec3 size, vec3 pos, float angle, Color color)
 	PhysBody->SetPos(pos.x, pos.y, pos.z);
 
 	Cube* cube = new Cube(size.x, size.y, size.z);
-	cube->SetPos(size.x, size.y, size.z);
+	cube->SetPos(pos.x, pos.y, pos.z);
 	cube->SetRotation(angle, vec3(0, 1, 0));
 
 	PhysBody->SetTransform(cube->transform.M);

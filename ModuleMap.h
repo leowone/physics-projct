@@ -2,6 +2,7 @@
 #include "Module.h"
 #include "Globals.h"
 #include "PhysBody3D.h"
+#include "Color.h"
 
 struct Cube;
 
@@ -17,7 +18,7 @@ public:
 	update_status Update(float dt);
 	bool CleanUp();
 
-	void CreateWalls(vec3 size, vec3 pos, float angle = 0.0, Color color = Color(0, 1, 0, 0));
+	void CreateWalls(vec3 size, vec3 pos, float angle = 0.0, Color color = Color (0, 1, 0, 0));
 	void CreateFloor(vec3 size, vec3 pos, Color color = Color(0, 1, 0, 0));
 
 	void CreateGoal();
