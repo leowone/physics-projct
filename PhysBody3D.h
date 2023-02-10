@@ -33,15 +33,10 @@ public:
 
 private:
 
-	//void SetBody(btCollisionShape* shape, Primitive* parent, float mass);
-
 	btRigidBody* body = nullptr;
 	bool is_sensor;
-	//btCollisionShape* colShape;
-	//btDefaultMotionState* motionState;
 
 public:
-	//Primitive* parentPrimitive;
 	p2List<Module*> collision_listeners;
 
 };

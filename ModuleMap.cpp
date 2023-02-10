@@ -33,7 +33,6 @@ bool ModuleMap::CleanUp()
 
 update_status ModuleMap::Update(float dt)
 {
-
 	CubesItem = Cubes.getFirst();
 
 	while (CubesItem != NULL) {
@@ -43,14 +42,14 @@ update_status ModuleMap::Update(float dt)
 
 	}
 
+
 	if (App->player->vehicle->GetPos().y < -50) {
 
 		App->player->vehicle->SetPos(0, 5, 0);
 
 	}
 
-	//PhysBodyA->GetTransform(cubeA->transform.M);
-	//cubeA->Render();
+	
 
 	return UPDATE_CONTINUE;
 
@@ -59,41 +58,76 @@ update_status ModuleMap::Update(float dt)
 void ModuleMap::LoadMap()
 {
 
-	MergeMap(); //sounds like a shitty mobile game
+	MergeMap();
 
 	CreateGoal();
-	CreateBall();
+	CreateBall(2, (8, 5, 0), White);
 
 }
 
 void ModuleMap::MergeMap()
 {
 
-	Color Green(0.0, 1.0, 0.0); //bob ross said green
+	Color Green(0.0, 1.0, 0.0);
 	Color White(1.0, 1.0, 1.0);
+	Color Red(1.0, 0.0, 0.0);
+	Color Black(0.0, 0.0, 0.0);
+	Color Blue(0.0, 0.0, 0.5);
+	Color Yellow(1.0, 1.0, 0.0);
+	Color Pink(1.0, 0.0, 1.0);
+	Color Cyan(0.0, 1.0, 1.0);
 
 	//Map base
 	
 	//walls
-	CreateWalls(vec3(5, 60, 200), vec3 (100, 0, 0));
-	CreateWalls(vec3(5, 60, 200), vec3 (-100, 0, 0));
-	CreateWalls(vec3(200, 60, 5), vec3 (0, 0, 100));
-	CreateWalls(vec3(200, 60, 5), vec3 (0, 0, -100));
+	CreateWalls(vec3(5, 60, 200), vec3 (100, 0, 0), 0, Blue);
+	CreateWalls(vec3(5, 60, 200), vec3 (-100, 0, 0), 0, Blue);
+	CreateWalls(vec3(200, 60, 5), vec3 (0, 0, 100), 0, Blue);
+	CreateWalls(vec3(200, 60, 5), vec3 (0, 0, -100), 0, Blue);
 
 	//gradas
-	CreateWalls(vec3(7, 40, 100), vec3(94, -10, 0), 0, White);
-	CreateWalls(vec3(10, 32, 100), vec3(85.5, -14, 0), 0, White);
-	CreateWalls(vec3(12, 26, 100), vec3(74.5, -17, 0), 0, White);
-
-	CreateWalls(vec3(7, 40, 100), vec3(-94, -10, -0), 0, White);
-	CreateWalls(vec3(10, 32, 100), vec3(-85.5, -14, -0), 0, White);
-	CreateWalls(vec3(12, 26, 100), vec3(-74.5, -17, -0), 0, White);
+	CreateWalls(vec3(7, 30, 150), vec3(94, -28, 0));
+	CreateWalls(vec3(10, 22, 150), vec3(85.5, -28, 0));
+	CreateWalls(vec3(12, 16, 150), vec3(74.5, -30, 0));
+	CreateWalls(vec3(7, 30, 150), vec3(-94, -28, -0));
+	CreateWalls(vec3(10, 22, 150), vec3(-85.5, -28, -0));
+	CreateWalls(vec3(12, 16, 150), vec3(-74.5, -30, -0));
 
 	//mini walls
-	//CreateWalls(vec3(1, 3, 150), vec3(60, -18, 0));
+	CreateWalls(vec3(1, 3, 159), vec3(62.5, -28.5, 0), 0, Yellow);
+	CreateWalls(vec3(1, 3, 159), vec3(-62.5, -28.5, 0), 0, Yellow);
+	CreateWalls(vec3(50, 3, 1), vec3(38, -28.5, 80), 0, Yellow);
+	CreateWalls(vec3(50, 3, 1), vec3(-38, -28.5, 80), 0, Yellow);
+	CreateWalls(vec3(126, 3, 1), vec3(0, -28.5, -80), 0, Yellow);
+
+	//goal
+	CreateWalls(vec3(2, 10, 10), vec3(12, -25.1, 80), 0, White);
+	CreateWalls(vec3(2, 10, 10), vec3(-12, -25.1, 80), 0, White);
+	CreateWalls(vec3(23, 10, 1), vec3(0, -25.1, 85), 0, White);
+	CreateWalls(vec3(22, 0.5, 9), vec3(0, -19.9, 79.5), 0, White);
+
+	//arrow
+	CreateWalls(vec3(10, 20, 1), vec3(0, 10, 82), 0, Red);
+	CreateWalls(vec3(25, 2, 1), vec3(0, -1, 82), 0, Red);
+	CreateWalls(vec3(20, 2, 1), vec3(0, -3, 82), 0, Red);
+	CreateWalls(vec3(15, 2, 1), vec3(0, -5, 82), 0, Red);
+	CreateWalls(vec3(10, 2, 1), vec3(0, -7, 82), 0, Red);
+	CreateWalls(vec3(5, 2, 1), vec3(0, -9, 82), 0, Red);
+	CreateWalls(vec3(3, 2, 1), vec3(0, -11, 82), 0, Red);
+	CreateWalls(vec3(1, 2, 1), vec3(0, -13, 82), 0, Red);
+
+	//roof
+	CreateWalls(vec3(200, 1, 200), vec3(0, 40, 0), 0, Blue);
+
+	//floor texture
+	CreateWalls(vec3(200, 1, 200), vec3(0, -40, 0), 0, Pink);
+	CreateWalls(vec3(60, 40, 200), vec3(93, -49.9, 0), 0, Green);
+	CreateWalls(vec3(60, 40, 200), vec3(-93, -49.9, 0), 0, Green);
+	CreateWalls(vec3(126, 40, 20), vec3(0, -49.9, -90), 0, Green);
+	CreateWalls(vec3(126, 40, 10), vec3(0, -49.9, 90), 0, Green);
 
 
-	CreateFloor(vec3(20, 1, 20), vec3(20, 0, 20));
+	CreateFloor(vec3(100, 1, 100), vec3(0, 0, 0));
 
 }
 
@@ -127,7 +161,7 @@ void ModuleMap::CreateWalls(vec3 size, vec3 pos, float angle, Color color)
 
 void ModuleMap::CreateFloor(vec3 size, vec3 pos, Color color)
 {
-	pos.y += 0;
+	pos.y += 1;
 
 	btCollisionShape* colShape = new btStaticPlaneShape(btVector3(0, 1, 0), 0);
 	btDefaultMotionState* myMotionState = new btDefaultMotionState();
@@ -141,17 +175,18 @@ void ModuleMap::CreateFloor(vec3 size, vec3 pos, Color color)
 void ModuleMap::CreateGoal()
 {
 
-	sensor_goal = App->physics->AddBody(Cube(5, 5, 5), 0.0);
-	sensor_goal->SetPos(50, 5, 10);
+	sensor_goal = App->physics->AddBody(Cube(22, 10, 8), 0.0);
+	sensor_goal->SetPos(0, 5, 80);
 	sensor_goal->SetAsSensor(true);
 
 }
 
-void ModuleMap::CreateBall()
+void ModuleMap::CreateBall(float radius, vec3 pos, Color color)
 {
-	ball = App->physics->AddBody(Sphere(2), 1.0);
-	ball->SetPos(7, 5, 7);
+	ball = App->physics->AddBody(Sphere(radius), 1.0);
+	ball->SetPos(pos.x, pos.y, pos.z);
 	ball->collision_listeners.add(this);
+
 }
 
 void ModuleMap::OnCollision(PhysBody3D* body1, PhysBody3D* body2)

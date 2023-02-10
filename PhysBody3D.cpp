@@ -4,47 +4,18 @@
 #include "Application.h"
 #include "Primitive.h"
 #include "Bullet/include/btBulletDynamicsCommon.h"
+#include "Color.h"
 
 // =================================================
 PhysBody3D::PhysBody3D(btRigidBody* body) : body(body)
-
-/*: body(nullptr)
-	, colShape(nullptr)
-	, motionState(nullptr)
-	, parentPrimitive(nullptr)
-	, collision_listeners()*/
 
 {}
 
 // ---------------------------------------------------------
 PhysBody3D::~PhysBody3D()
 {
-	/*if (HasBody() == true)
-	{
-		App->physics->RemoveBodyFromWorld(body);
-		delete body;
-		delete colShape;
-		delete motionState;
-	}*/
-
 	delete body;
 }
-
-/*void PhysBody3D::SetBody(Sphere* primitive, float mass)
-{
-	SetBody(new btSphereShape(primitive->GetRadius()),
-		primitive, mass);
-}
-
-bool PhysBody3D::HasBody() const
-{
-	return body != nullptr;
-}
-
-btRigidBody* PhysBody3D::GetBody() const
-{
-	return body;
-}*/
 
 // ---------------------------------------------------------
 void PhysBody3D::Push(float x, float y, float z)
@@ -122,28 +93,3 @@ void PhysBody3D::SetAsSensor(bool is_sensor)
 			body->setCollisionFlags(body->getCollisionFlags() & ~btCollisionObject::CF_NO_CONTACT_RESPONSE);
 	}
 }
-
-/*void PhysBody3D::SetBody(btCollisionShape* shape, Primitive* parent, float mass)
-{
-	assert(HasBody() == false);
-
-	parentPrimitive = parent;
-
-	colShape = shape;
-
-	btTransform startTransform;
-	startTransform.setFromOpenGLMatrix(&parent->transform);
-
-	btVector3 localInertia(0, 0, 0);
-	if (mass != 0.f)
-		colShape->calculateLocalInertia(mass, localInertia);
-
-	motionState = new btDefaultMotionState(startTransform);
-	btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, motionState, colShape, localInertia);
-
-	body = new btRigidBody(rbInfo);
-
-	body->setUserPointer(this);
-
-	App->physics->AddBodyToWorld(body); 
-}*/

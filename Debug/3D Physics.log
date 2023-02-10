@@ -1,4 +1,13 @@
 ﻿  ModuleMap.cpp
 C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\physics-projct\ModuleMap.h(7,12): warning C4099: 'Cube': type name first seen using 'class' now seen using 'struct'
 C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\physics-projct\Primitive.h(42): message : see declaration of 'Cube'
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\physics-projct\ModuleMap.cpp(64,21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\physics-projct\ModuleMap.cpp(104,49): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\physics-projct\ModuleMap.cpp(105,50): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\physics-projct\ModuleMap.cpp(106,48): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\physics-projct\ModuleMap.cpp(107,51): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\physics-projct\ModuleMap.cpp(124,50): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\physics-projct\ModuleMap.cpp(125,51): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\physics-projct\ModuleMap.cpp(126,51): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\physics-projct\ModuleMap.cpp(127,50): warning C4305: 'argument': truncation from 'double' to 'float'
   3D Physics.vcxproj -> C:\Users\Usuario\Desktop\Physics II - Bullet3D - Handout 05\physics-projct\Debug\3D Physics - class5.exe

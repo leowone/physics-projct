@@ -74,9 +74,9 @@ update_status ModuleCamera3D::Update(float dt)
 	auto chassisPosX = App->player->vehicle->vehicle->getForwardVector().getX();
 	auto chassisPosY = App->player->vehicle->vehicle->getForwardVector().getY();
 	auto chassisPosZ = App->player->vehicle->vehicle->getForwardVector().getZ();
-	auto camBackX = Position.x - chassisPosX * 10;
-	auto camBackY = Position.y - chassisPosY * 10 + 5;
-	auto camBackZ = Position.z - chassisPosZ * 10;
+	auto camBackX = Position.x - chassisPosX * 10;       //10
+	auto camBackY = Position.y - chassisPosY * 10 + 5;   //10 + 5
+	auto camBackZ = Position.z - chassisPosZ * 10;       //10
 	Position = { camBackX, camBackY, camBackZ };
 
 	//punto donde mira la camara

@@ -25,7 +25,7 @@ void PhysVehicle3D::Render()
 {
 	Cylinder wheel;
 
-	wheel.color = Blue;
+	wheel.color = Black;
 
 	for(int i = 0; i < vehicle->getNumWheels(); ++i)
 	{
@@ -38,14 +38,32 @@ void PhysVehicle3D::Render()
 		wheel.Render();
 	}
 
-	RenderChassisElement(0.5, 0.5, 0.5, 0, 0);
-	RenderChassisElement(5, 0.1, 0.1, 2, 1);
+	//x y z, distance, height
+
+	//hitbox : car.chassis_size.Set(2, 1.5, 4);
+
+	//main body of the car
+	RenderChassisElement(2, 1.5, 1.75, 0.5, 0);
+	RenderChassisElement(2, 0.75, 4, 0, -0.37);
+	RenderChassisElement(1.20, 0.75, 3.75, -0, -0.20);
+
+	//aleron
+	RenderChassisElement(5, 0.1, 0.4, 2, 0.8);
+	RenderChassisElement(5, 0.1, 0.1, 1.86, 0.7);
+	RenderChassisElement(0.1, 0.4, 0.4, 1.86, 0.7);
+	RenderChassisElement(0.1, 0.4, 0.4, 1.74, 0.4);
+	RenderChassisElement(0.1, 0.4, 0.4, 1.60, 0.1);
+
+	//rueda cosa
+	RenderChassisElement(3.3, 0.25, 1, 1.5, -0.1);
 
 }
 
 void PhysVehicle3D::RenderChassisElement(float x, float y, float z, float offsetBehind, float offsetVertical)
 {
 	Cube chassis_element(x, y, z); //TAMAÑO DEL OBJETO
+
+	chassis_element.color = Red;
 
 	vehicle->getChassisWorldTransform().getOpenGLMatrix(&chassis_element.transform);
 	btQuaternion q = vehicle->getChassisWorldTransform().getRotation();
